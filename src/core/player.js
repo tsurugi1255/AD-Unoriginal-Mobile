@@ -11,20 +11,20 @@ import { GlyphTypes } from "./glyph-effects";
 window.player = {
   antimatter: DC.E1,
   dimensions: {
-    antimatter: Array.range(0, 8).map(() => ({
+    antimatter: Array.range(0, 9).map(() => ({
       bought: 0,
       costBumps: 0,
       amount: DC.D0
     })),
-    infinity: Array.range(0, 8).map(tier => ({
+    infinity: Array.range(0, 9).map(tier => ({
       isUnlocked: false,
       bought: 0,
       amount: DC.D0,
-      cost: [DC.E8, DC.E9, DC.E10, DC.E20, DC.E140, DC.E200, DC.E250, DC.E280][tier],
+      cost: [DC.E8, DC.E9, DC.E10, DC.E20, DC.E100, DC.E160, DC.E210, DC.E230, DC.E270][tier],
       baseAmount: 0
     })),
-    time: Array.range(0, 8).map(tier => ({
-      cost: [DC.D1, DC.D5, DC.E2, DC.E3, DC.E2350, DC.E2650, DC.E3000, DC.E3350][tier],
+    time: Array.range(0, 9).map(tier => ({
+      cost: [DC.D1, DC.D5, DC.E2, DC.E3, DC.E6, DC.E2350, DC.E2650, DC.E3000, DC.E3350][tier],
       amount: DC.D0,
       bought: 0
     }))
@@ -99,7 +99,7 @@ window.player = {
       cost: 1,
       interval: 4000,
       limitDimBoosts: true,
-      maxDimBoosts: 4,
+      maxDimBoosts: 5,
       limitUntilGalaxies: false,
       galaxies: 10,
       buyMaxInterval: 0,
@@ -120,10 +120,10 @@ window.player = {
       isActive: true
     },
     antimatterDims: {
-      all: Array.range(0, 8).map(tier => ({
+      all: Array.range(0, 9).map(tier => ({
         isUnlocked: false,
         cost: 1,
-        interval: [500, 600, 700, 800, 900, 1000, 1100, 1200][tier],
+        interval: [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300][tier],
         bulk: 1,
         mode: AUTOBUYER_MODE.BUY_10,
         isActive: true,
@@ -133,14 +133,14 @@ window.player = {
       isActive: true,
     },
     infinityDims: {
-      all: Array.range(0, 8).map(() => ({
+      all: Array.range(0, 9).map(() => ({
         isActive: false,
         lastTick: 0,
       })),
       isActive: true,
     },
     timeDims: {
-      all: Array.range(0, 8).map(() => ({
+      all: Array.range(0, 9).map(() => ({
         isActive: false,
         lastTick: 0,
       })),
@@ -242,6 +242,7 @@ window.player = {
       maxAll: false,
       noSacrifice: true,
       noAD8: true,
+      noTS: true,
     },
     eternity: {
       onlyAD1: true,
@@ -359,7 +360,7 @@ window.player = {
     previousRuns: {}
   },
   IPMultPurchases: 0,
-  version: 25,
+  version: 24,
   infinityPower: DC.D1,
   postC4Tier: 0,
   eternityPoints: DC.D0,
@@ -770,6 +771,7 @@ window.player = {
       enabled: true,
       repeatBuffer: 40,
       AIChance: 0,
+      SCPChance: 10,
       speed: 1,
       includeAnimated: true,
     },
@@ -908,7 +910,6 @@ window.player = {
     },
     invertTTgenDisplay: false,
     autoRealityForFilter: false,
-    gamePaused: false,
   },
   IAP: {
     enabled: false,
@@ -922,7 +923,7 @@ export const Player = {
   defaultStart: deepmergeAll([{}, player]),
 
   get isInMatterChallenge() {
-    return NormalChallenge(11).isRunning || InfinityChallenge(6).isRunning;
+    return NormalChallenge(12).isRunning || InfinityChallenge(6).isRunning;
   },
 
   get isInAntimatterChallenge() {
@@ -1024,6 +1025,7 @@ export const Player = {
           maxAll: false,
           noSacrifice: true,
           noAD8: true,
+          noTS: true,
         };
         break;
       default:
