@@ -67,7 +67,7 @@ export default {
       class="l-tab-btn-inner"
       @click="tab.show(true)"
     >
-      {{ tabName.substring(0.1) }}
+      {{ tabName.substring(0,1) }}
       <div
         v-if="hasNotification"
         class="fas fa-circle-exclamation l-notification-icon"
