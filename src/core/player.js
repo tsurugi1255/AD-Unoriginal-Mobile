@@ -11,20 +11,20 @@ import { GlyphTypes } from "./glyph-effects";
 window.player = {
   antimatter: DC.E1,
   dimensions: {
-    antimatter: Array.range(0, 9).map(() => ({
+    antimatter: Array.range(0, 8).map(() => ({
       bought: 0,
       costBumps: 0,
       amount: DC.D0
     })),
-    infinity: Array.range(0, 9).map(tier => ({
+    infinity: Array.range(0, 8).map(tier => ({
       isUnlocked: false,
       bought: 0,
       amount: DC.D0,
-      cost: [DC.E8, DC.E9, DC.E10, DC.E20, DC.E100, DC.E160, DC.E210, DC.E230, DC.E270][tier],
+      cost: [DC.E8, DC.E9, DC.E10, DC.E20, DC.E140, DC.E200, DC.E250, DC.E280][tier],
       baseAmount: 0
     })),
-    time: Array.range(0, 9).map(tier => ({
-      cost: [DC.D1, DC.D5, DC.E2, DC.E3, DC.E6, DC.E2350, DC.E2650, DC.E3000, DC.E3350][tier],
+    time: Array.range(0, 8).map(tier => ({
+      cost: [DC.D1, DC.D5, DC.E2, DC.E3, DC.E2350, DC.E2650, DC.E3000, DC.E3350][tier],
       amount: DC.D0,
       bought: 0
     }))
@@ -80,15 +80,15 @@ window.player = {
       mode: 0,
       amount: DC.D1,
       increaseWithMult: true,
-      time: 1,
+      time: 5,
       xHighest: DC.D1,
-      isActive: true,
+      isActive: false,
       lastTick: 0
     },
     galaxy: {
       cost: 1,
       interval: 20000,
-      limitGalaxies: false,
+      limitGalaxies: true,
       maxGalaxies: 1,
       buyMax: false,
       buyMaxInterval: 0,
@@ -98,8 +98,8 @@ window.player = {
     dimBoost: {
       cost: 1,
       interval: 4000,
-      limitDimBoosts: false,
-      maxDimBoosts: 1,
+      limitDimBoosts: true,
+      maxDimBoosts: 4,
       limitUntilGalaxies: false,
       galaxies: 10,
       buyMaxInterval: 0,
@@ -120,10 +120,10 @@ window.player = {
       isActive: true
     },
     antimatterDims: {
-      all: Array.range(0, 9).map(tier => ({
+      all: Array.range(0, 8).map(tier => ({
         isUnlocked: false,
         cost: 1,
-        interval: [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300][tier],
+        interval: [500, 600, 700, 800, 900, 1000, 1100, 1200][tier],
         bulk: 1,
         mode: AUTOBUYER_MODE.BUY_10,
         isActive: true,
@@ -133,14 +133,14 @@ window.player = {
       isActive: true,
     },
     infinityDims: {
-      all: Array.range(0, 9).map(() => ({
+      all: Array.range(0, 8).map(() => ({
         isActive: false,
         lastTick: 0,
       })),
       isActive: true,
     },
     timeDims: {
-      all: Array.range(0, 9).map(() => ({
+      all: Array.range(0, 8).map(() => ({
         isActive: false,
         lastTick: 0,
       })),
@@ -242,7 +242,6 @@ window.player = {
       maxAll: false,
       noSacrifice: true,
       noAD8: true,
-      noTS: true,
     },
     eternity: {
       onlyAD1: true,
@@ -360,7 +359,7 @@ window.player = {
     previousRuns: {}
   },
   IPMultPurchases: 0,
-  version: 24,
+  version: 25,
   infinityPower: DC.D1,
   postC4Tier: 0,
   eternityPoints: DC.D0,
@@ -765,23 +764,25 @@ window.player = {
   triggeredTabNotificationBits: 0,
   tutorialState: 0,
   tutorialActive: true,
+  bottomButtonActive: false,
   options: {
     news: {
       enabled: true,
       repeatBuffer: 40,
       AIChance: 0,
-      SCPChance: 10,
       speed: 1,
       includeAnimated: true,
     },
-    notation: "Mixed scientific",
+    notation: "Scientific",
     notationDigits: {
       comma: 5,
       notation: 9
     },
+    allowCompanionClearn: false,
+    sidebarResourceID: 0,
     retryChallenge: false,
     retryCelestial: false,
-    showAllChallenges: false,
+    showAllChallenges: true,
     cloudEnabled: true,
     hideGoogleName: false,
     showCloudModal: true,
@@ -796,7 +797,7 @@ window.player = {
     loadBackupWithoutOffline: false,
     automaticTabSwitching: true,
     respecIntoProtected: false,
-    offlineTicks: 1e5,
+    offlineTicks: 1e6,
     hibernationCatchup: true,
     statTabResources: 0,
     multiplierTab: {
@@ -804,11 +805,11 @@ window.player = {
       showAltGroup: false,
       replacePowers: false,
     },
-    autosaveInterval: 30000,
+    autosaveInterval: 10000,
     showTimeSinceSave: true,
     saveFileName: "",
     exportedFileCount: 0,
-    hideCompletedAchievementRows: false,
+    hideCompletedAchievementRows: true,
     glyphTextColors: true,
     headerTextColored: false,
     showNewGlyphIcon: true,
@@ -816,9 +817,9 @@ window.player = {
     highContrastRarity: false,
     swapGlyphColors: false,
     hideAlterationEffects: false,
-    ignoreGlyphEffects: false,
-    ignoreGlyphLevel: false,
-    ignoreGlyphRarity: false,
+    ignoreGlyphEffects: true,
+    ignoreGlyphLevel: true,
+    ignoreGlyphRarity: true,
     glyphBG: GLYPH_BG_SETTING.AUTO,
     glyphBorders: true,
     showHintText: {
@@ -835,34 +836,34 @@ window.player = {
       showGlyphInfoByDefault: false,
     },
     animations: {
-      bigCrunch: true,
-      eternity: true,
-      dilation: true,
-      tachyonParticles: true,
-      reality: true,
-      background: true,
+      bigCrunch: false,
+      eternity: false,
+      dilation: false,
+      tachyonParticles: false,
+      reality: false,
+      background: false,
       blobSnowflakes: 16
     },
     confirmations: {
-      armageddon: true,
-      sacrifice: true,
-      challenges: true,
-      exitChallenge: true,
-      eternity: true,
-      dilation: true,
-      resetReality: true,
-      glyphReplace: true,
-      glyphSacrifice: true,
+      armageddon: false,
+      sacrifice: false,
+      challenges: false,
+      exitChallenge: false,
+      eternity: false,
+      dilation: false,
+      resetReality: false,
+      glyphReplace: false,
+      glyphSacrifice: false,
       autoClean: true,
-      sacrificeAll: true,
+      sacrificeAll: false,
       glyphSelection: true,
       glyphUndo: true,
       deleteGlyphSetSave: true,
       glyphRefine: true,
-      bigCrunch: true,
-      replicantiGalaxy: true,
-      antimatterGalaxy: true,
-      dimensionBoost: true,
+      bigCrunch: false,
+      replicantiGalaxy: false,
+      antimatterGalaxy: false,
+      dimensionBoost: false,
       switchAutomatorMode: true,
       respecIAP: true
     },
@@ -896,8 +897,8 @@ window.player = {
     hiddenSubtabBits: Array.repeat(0, 11),
     lastOpenTab: 0,
     lastOpenSubtab: Array.repeat(0, 11),
-    perkLayout: 0,
-    perkPhysicsEnabled: true,
+    perkLayout: 2,
+    perkPhysicsEnabled: false,
     automatorEvents: {
       newestFirst: false,
       timestampType: 0,
@@ -907,6 +908,7 @@ window.player = {
     },
     invertTTgenDisplay: false,
     autoRealityForFilter: false,
+    gamePaused: false,
   },
   IAP: {
     enabled: false,
@@ -920,7 +922,7 @@ export const Player = {
   defaultStart: deepmergeAll([{}, player]),
 
   get isInMatterChallenge() {
-    return NormalChallenge(12).isRunning || InfinityChallenge(6).isRunning;
+    return NormalChallenge(11).isRunning || InfinityChallenge(6).isRunning;
   },
 
   get isInAntimatterChallenge() {
@@ -1022,7 +1024,6 @@ export const Player = {
           maxAll: false,
           noSacrifice: true,
           noAD8: true,
-          noTS: true,
         };
         break;
       default:
