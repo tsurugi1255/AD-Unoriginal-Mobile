@@ -124,14 +124,26 @@ export default {
 
 .tickspeed-btn {
   position: relative;
-  width: 30rem;
-  height: 2.5rem;
-  padding: 0.25rem;
+  height: 100%;
+  padding: 2rem;
+  flex: 0 0 70%;
+  font-size: 2rem;
+  margin: 0 0.5rem;
 }
 
 .tickspeed-labels {
   color: var(--color-text);
   padding: 0.25rem;
+  margin-top: 2rem;
+  width: 65%;
+}
+
+.tickspeed-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .l-tickspeed-container {
@@ -147,10 +159,11 @@ export default {
 }
 
 .tickspeed-max-btn {
-  margin-left: 0.5rem;
-  width: 10rem;
-  height: 2.5rem;
-  padding: 0.25rem;
+  flex: 0 0 30%;
+  padding: 2rem;
+  font-size: 2rem;
+  height: 100%;
+  margin: 0 0.5rem;
 }
 
 .o-non-clickable {
