@@ -117,17 +117,17 @@ export default {
         :tier="tier"
       />
     </div>
-    <div class="resets-container">
-      <DimensionBoostRow />
-      <PrimaryButton
+    <PrimaryButton
         v-if="isQuickResetAvailable"
         class="o-primary-btn--quick-reset"
         onclick="softReset(-1, true, true)"
       >
         Perform a Dimension Boost reset
-        <span v-if="hasDimensionBoosts"> but lose a Dimension Boost</span>
+        <span v-if="hasDimensionBoosts"> but lose a Di>
         <span v-else> for no gain</span>
       </PrimaryButton>
+    <div class="resets-container">
+      <DimensionBoostRow />
       <AntimatterGalaxyRow />
     </div>
     <AntimatterDimensionProgressBar />
