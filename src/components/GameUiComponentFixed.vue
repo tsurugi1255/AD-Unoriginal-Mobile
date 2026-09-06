@@ -12,6 +12,7 @@ import SaveTimer from "@/components/SaveTimer";
 import SpectateGame from "@/components/SpectateGame";
 import SpeedrunStatus from "@/components/SpeedrunStatus";
 import TimeTheoremShop from "@/components/tabs/time-studies/tt-shop/TimeTheoremShop";
+import ModernBottomButtons from "./ui-modes/modern/ModernBottomButtons";
 
 export default {
   name: "GameUiComponentFixed",
@@ -28,7 +29,8 @@ export default {
     FadeAway,
     CreditsContainer,
     SpectateGame,
-    NewGame
+    NewGame,
+    ModernBottomButtons,
   },
   data() {
     return {
@@ -68,6 +70,9 @@ export default {
     <TimeTheoremShop
       v-if="view.subtab === 'studies'"
       class="l-time-studies-tab__tt-shop"
+    />
+    <ModernBottomButtons
+      v-if="view.newUI && view.theme !== 'S12'"
     />
     <ModernSidebar
       v-if="view.newUI && view.theme !== 'S12'"
