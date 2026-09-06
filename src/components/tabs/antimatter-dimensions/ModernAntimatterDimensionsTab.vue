@@ -86,9 +86,10 @@ export default {
       this.currentSacrifice.copyFrom(Sacrifice.totalBoost);
       this.sacrificeBoost.copyFrom(Sacrifice.nextBoost);
       this.disabledCondition = Sacrifice.disabledCondition;
-      this.sacText = this.isSacrificeUnlocked
-        ? `Dimensional Sacrifice multiplier: ${formatX(this.currentSacrifice, 2, 2)}`
+      const sacText = this.isSacrificeUnlocked
+        ? ` | Dimensional Sacrifice multiplier: ${formatX(this.currentSacrifice, 2, 2)}`
         : "";
+      this.multiplierText += sacText;
     }
   }
 };
@@ -97,6 +98,12 @@ export default {
 <template>
   <div class="l-antimatter-dim-tab">
     <div class="modes-container">
+      <button
+        class="o-primary-btn l-button-container"
+        @click="changeBuyMode"
+      >
+        {{ getUntil10Display() }}
+      </button>
       <PrimaryButton
         v-show="isSacrificeUnlocked"
         v-tooltip="sacrificeTooltip"
@@ -107,8 +114,14 @@ export default {
         <span v-if="isSacrificeAffordable">Dimensional Sacrifice ({{ formatX(sacrificeBoost, 2, 2) }})</span>
         <span v-else>Dimensional Sacrifice Disabled ({{ disabledCondition }})</span>
       </PrimaryButton>
+      <button
+        class="o-primary-btn l-button-container"
+        @click="maxAll"
+      >
+        Max All (M)
+      </button>
     </div>
-    <span>{{ multiplierText }}<br>{{ sacText }}</span>
+    <span>{{ multiplierText }}</span>
     <TickspeedRow />
     <div class="l-dimensions-container">
       <AntimatterDimensionRow

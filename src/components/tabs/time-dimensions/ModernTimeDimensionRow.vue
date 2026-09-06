@@ -141,7 +141,7 @@ export default {
       </div>
       <PrimaryButton
         :enabled="isAvailableForPurchase && !isCapped"
-        class="o-primary-btn--buy-td o-primary-btn o-primary-btn--new o-primary-btn--buy-dim o-dimension-upgrade-btn"
+        class="o-primary-btn--buy-td o-primary-btn o-primary-btn--new o-primary-btn--buy-dim"
         :class="{ 'l-dim-row-small-text': hasLongText }"
         @click="buyTimeDimension"
       >
@@ -150,13 +150,13 @@ export default {
       <PrimaryToggleButton
         v-if="areAutobuyersUnlocked"
         v-model="isAutobuyerOn"
-        class="o-dimension-upgrade-btn"
+        class="o-primary-btn--buy-td-auto"
         label="Auto:"
       />
       <PrimaryButton
         v-else
         :enabled="isAvailableForPurchase && !isCapped"
-        class="o-dimension-upgrade-btn"
+        class="o-primary-btn--buy-td-auto"
         @click="buyMaxTimeDimension"
       >
         Buy Max

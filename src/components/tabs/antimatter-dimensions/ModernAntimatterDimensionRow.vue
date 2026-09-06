@@ -148,7 +148,6 @@ export default {
         {{ boughtTooltip }}
       </div>
       <button
-        class="o-dimension-upgrade-btn"
         :class="buttonClass()"
         @click="buy"
       >

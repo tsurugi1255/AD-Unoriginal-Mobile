@@ -82,10 +82,9 @@ export default {
 <style scoped>
 .l-dimension-text-container {
   display: flex;
-  height: 100%;
+  height: 3.5rem;
   align-content: center;
   grid-column: 1 / 5;
-  padding: 1rem 0;
 }
 
 .l-narrow-box {
@@ -95,10 +94,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-}
-
-.l-narrow-box:first-child {
-  flex 0 0 65%;
 }
 
 .l-wide-box {
@@ -116,7 +111,7 @@ export default {
 }
 
 .c-dim-row__small {
-  font-size: 1.7rem;
+  font-size: 1.2rem;
   margin-right: 1rem;
 }
 </style>
