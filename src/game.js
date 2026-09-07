@@ -82,6 +82,11 @@ export function breakInfinity() {
   // There's a potential migration edge case involving already-maxed autobuyers; this should give the achievement
   Achievement(61).tryUnlock();
   Achievement(52).unlock();
+  Achievement(43).unlock();
+  Achievement(108).unlock();
+  Achievement(124).unlock();
+  Achievement(134).unlock();
+  Achievement(143).unlock();
   player.break = !player.break;
   TabNotification.ICUnlock.tryTrigger();
   EventHub.dispatch(player.break ? GAME_EVENT.BREAK_INFINITY : GAME_EVENT.FIX_INFINITY);
