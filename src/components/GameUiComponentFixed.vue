@@ -62,6 +62,10 @@ export default {
     id="ui-fixed"
     class="c-game-ui--fixed"
   >
+    <div
+      id="notification-container"
+      class="l-notification-container"
+    />
     <TimeTheoremShop
       v-if="view.subtab === 'studies'"
       class="l-time-studies-tab__tt-shop"
