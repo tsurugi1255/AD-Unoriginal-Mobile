@@ -24,6 +24,7 @@ export function infinityDimensionCommonMultiplier() {
   if (Replicanti.areUnlocked && Replicanti.amount.gt(1)) {
     mult = mult.times(replicantiMult());
   }
+  mult = mult.times(4);
 
   return mult;
 }
