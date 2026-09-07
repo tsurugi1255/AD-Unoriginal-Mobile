@@ -83,6 +83,7 @@ export function breakInfinity() {
   Achievement(43).unlock();
   Achievement(79).unlock();
   Achievement(108).unlock();
+  Achievement(111).unlock();
   Achievement(124).unlock();
   Achievement(134).unlock();
   Achievement(143).unlock();
