@@ -190,7 +190,7 @@ function onBuyDimension(tier) {
 
   player.postC4Tier = tier;
   player.records.thisInfinity.lastBuyTime = player.records.thisInfinity.time;
-  if (tier !== 9) player.requirementChecks.eternity.onlyAD8 = false;
+  if (tier !== 8) player.requirementChecks.eternity.onlyAD8 = false;
   if (tier !== 1) player.requirementChecks.eternity.onlyAD1 = false;
   if (tier === 9) player.requirementChecks.infinity.noAD8 = false;
   if (tier === 1) player.requirementChecks.eternity.noAD1 = false;

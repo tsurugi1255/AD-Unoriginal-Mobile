@@ -781,8 +781,8 @@ export const normalAchievements = [
   },
   {
     id: 101,
-    name: "9 nobody got time for that",
-    description: "Eternity without buying Antimatter Dimensions 1-8.",
+    name: "8 nobody got time for that",
+    description: "Eternity using only AD8.",
     checkRequirement: () => player.requirementChecks.eternity.onlyAD8,
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
   },
@@ -1035,8 +1035,8 @@ export const normalAchievements = [
   {
     id: 131,
     name: "No ethical consumption",
-    get description() { return `Get ${format(DC.D2E9)} Banked Infinities.`; },
-    checkRequirement: () => Currency.infinitiesBanked.gt(DC.D2E9),
+    get description() { return `Get ${format(DC.D5E7)} Banked Infinities.`; },
+    checkRequirement: () => Currency.infinitiesBanked.gt(DC.D5E7),
     checkEvent: [GAME_EVENT.ETERNITY_RESET_AFTER, GAME_EVENT.SAVE_CONVERTED_FROM_PREVIOUS_VERSION],
     get reward() {
       return `After Eternity you permanently keep ${formatPercents(0.05)} of your Infinities as Banked Infinities.`;
