@@ -66,10 +66,6 @@ export default {
       id="notification-container"
       class="l-notification-container"
     />
-    <TimeTheoremShop
-      v-if="view.subtab === 'studies'"
-      class="l-time-studies-tab__tt-shop"
-    />
     <ModernBottomButtons
       v-if="view.newUI && view.theme !== 'S12'"
     />
