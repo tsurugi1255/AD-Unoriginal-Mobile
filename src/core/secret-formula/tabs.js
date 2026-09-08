@@ -8,7 +8,7 @@ export const tabs = [
     subtabs: [
       {
         key: "antimatter",
-        name: "Antimatter Dimensions",
+        name: "Antimatter",
         symbol: "Ω",
         component: "AntimatterDimensionsTab",
         id: 0,
@@ -16,7 +16,7 @@ export const tabs = [
       },
       {
         key: "infinity",
-        name: "Infinity Dimensions",
+        name: "Infinity",
         hideAt: 2.7,
         symbol: "∞",
         component: "InfinityDimensionsTab",
@@ -29,7 +29,7 @@ export const tabs = [
       },
       {
         key: "time",
-        name: "Time Dimensions",
+        name: "Time",
         hideAt: 2.6,
         symbol: "Δ",
         component: "TimeDimensionsTab",
@@ -219,7 +219,7 @@ export const tabs = [
       },
       {
         key: "infinity",
-        name: "Infinity Challenges",
+        name: "Infinity",
         symbol: "∞",
         component: "infinity-challenges-tab",
         condition: () => PlayerProgress.realityUnlocked() || PlayerProgress.hasBroken() || Pelle.isDoomed,
@@ -228,7 +228,7 @@ export const tabs = [
       },
       {
         key: "eternity",
-        name: "Eternity Challenges",
+        name: "Eternity",
         symbol: "Δ",
         component: "eternity-challenges-tab",
         condition: () =>
@@ -302,7 +302,7 @@ export const tabs = [
     subtabs: [
       {
         key: "studies",
-        name: "Time Studies",
+        name: "Studies",
         symbol: "<i class='fas fa-book'></i>",
         component: "TimeStudiesTab",
         id: 0,
@@ -310,7 +310,7 @@ export const tabs = [
       },
       {
         key: "upgrades",
-        name: "Eternity Upgrades",
+        name: "Upgrades",
         symbol: "<i class='fas fa-arrow-up'></i>",
         component: "EternityUpgradesTab",
         id: 1,
@@ -318,7 +318,7 @@ export const tabs = [
       },
       {
         key: "milestones",
-        name: "Eternity Milestones",
+        name: "Milestones",
         symbol: "<i class='fas fa-star'></i>",
         component: "EternityMilestonesTab",
         id: 2,
@@ -326,7 +326,7 @@ export const tabs = [
       },
       {
         key: "dilation",
-        name: "Time Dilation",
+        name: "Dilation",
         symbol: "Ψ",
         component: "TimeDilationTab",
         condition: () => PlayerProgress.dilationUnlocked() || PlayerProgress.realityUnlocked(),
@@ -354,7 +354,7 @@ export const tabs = [
       },
       {
         key: "upgrades",
-        name: "Reality Upgrades",
+        name: "Upgrades",
         symbol: "<i class='fas fa-arrow-up'></i>",
         component: "RealityUpgradesTab",
         id: 1,
@@ -362,7 +362,7 @@ export const tabs = [
       },
       {
         key: "imag_upgrades",
-        name: "Imaginary Upgrades",
+        name: "Imaginary",
         symbol: "<i class='fas fa-level-up-alt'></i>",
         component: "ImaginaryUpgradesTab",
         condition: () => MachineHandler.isIMUnlocked,
@@ -388,7 +388,7 @@ export const tabs = [
       },
       {
         key: "alchemy",
-        name: "Glyph Alchemy",
+        name: "Alchemy",
         symbol: "<i class='fas fa-vial'></i>",
         component: "AlchemyTab",
         condition: () => Ra.unlocks.unlockGlyphAlchemy.canBeApplied,
