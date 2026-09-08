@@ -226,6 +226,12 @@ export default {
 </template>
 
 <style scoped>
+.l-glyph-selection__row {
+  display: grid;
+  grid-template-columns: repeat(4, 10rem);
+  gap: 1rem;
+}
+
 .l-glyph-selection-glyph-wrapper {
   width: 100%;
   height: 100%;
