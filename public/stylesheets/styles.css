@@ -2984,30 +2984,26 @@ br {
 /* #region o-achievement */
 
 .o-achievement {
-  width: 10.6rem;
-  height: 10.6rem;
   position: relative;
   text-align: center;
-  font-family: Typewriter, serif;
+  font-family: 'Trebuchet MS', sans-serif;
   font-size: 0.8rem;
   color: black;
-  border: var(--var-border-width, 0.2rem) solid;
-  border-radius: var(--var-border-radius, 0.8rem);
-  margin: 0 auto;
+  border: var(--var-border-width, 0.1rem) solid;
   -webkit-user-select: none;
   user-select: none;
 }
 
-.o-achievement--normal {
-  background-image: url("../images/normal achievements.png");
-}
-
+.o-achievement--normal,
 .o-achievement--cancer {
-  background-image: url("../images/cancer achievements.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .o-achievement--secret {
   background-image: url("../images/secret achievements.png");
+  zoom: 115%;
 }
 
 .o-achievement--unlocked {
@@ -3017,12 +3013,18 @@ br {
 
 .o-achievement--hidden {
   background-color: #555555;
-  background-image: url("../images/achhidden.png");
+  background-image: url("../images/mobile-ach-img/achhidden.webp") !important;
   border-color: black;
+  zoom: 110%;
 }
 
 .o-achievement:hover .o-achievement__tooltip {
-  bottom: 11rem;
+  bottom: 12.5rem;
+  opacity: 1;
+}
+
+.o-achievement--secret:hover .o-achievement__tooltip {
+  bottom: 10rem;
   opacity: 1;
 }
 
@@ -3032,9 +3034,11 @@ br {
 }
 
 .o-achievement__tooltip {
-  width: 20rem;
+  width: 35rem;
   position: absolute;
   bottom: 10.2rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   font-size: 1.4rem;
   opacity: 0;
@@ -3042,10 +3046,31 @@ br {
   background: var(--color-base);
   border: 0.1rem solid black;
   border-radius: var(--var-border-radius, 0.8rem);
-  margin-left: -5rem;
   padding: 0.4rem;
   transition-duration: 0.3s;
   pointer-events: none;
+}
+
+/* Fix tooltip overflow due to grid taking up the full width of the viewport */
+
+.o-achievement:first-child > .o-achievement__tooltip {
+  left: 0;
+  transform: none;
+}
+
+.o-achievement:first-child > .o-achievement__tooltip::after {
+  left: 17%;
+}
+
+.o-achievement:last-child > .o-achievement__tooltip {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.o-achievement:last-child > .o-achievement__tooltip::after {
+  left: auto;
+  right: 15%;
 }
 
 .o-achievement__tooltip::after {
@@ -3092,17 +3117,18 @@ br {
 }
 
 .o-achievement__tooltip__name {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-weight: bold;
   margin-bottom: 0.6rem;
 }
 
 .o-achievement__tooltip__description {
+  font-size: 1.5rem;
   margin-bottom: 0.4rem;
 }
 
 .o-achievement__tooltip__reward {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-style: italic;
 }
 
@@ -3252,7 +3278,7 @@ br {
   width: 60rem;
   position: relative;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-top: 0.6rem;
   -webkit-user-select: none;
   user-select: none;
@@ -3287,15 +3313,18 @@ br {
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  width: 100%;
 }
 
 .l-achievement-grid__row {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 .l-achievement-grid__cell {
-  margin: 0.6rem 0.8rem;
+  flex: 1;
+  aspect-ratio: 1/1;
 }
 
 .c-achievement-grid__row--completed {
