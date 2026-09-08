@@ -139,7 +139,6 @@ export default {
 <template>
   <div class="l-time-studies-tab">
     <TimeTheoremShop
-      v-if="view.subtab === 'studies'"
       class="l-time-studies-tab__tt-shop"
     />
     <div class="c-subtab-option-container">
