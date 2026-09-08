@@ -79,6 +79,8 @@ export function breakInfinity() {
   for (const autobuyer of Autobuyers.all) {
     if (autobuyer.data.interval !== undefined) autobuyer.maxIntervalForFree();
   }
+  Achievement(22).unlock();
+  Achievement(76).unlock();
   Achievement(52).unlock();
   Achievement(43).unlock();
   Achievement(79).unlock();
