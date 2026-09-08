@@ -272,9 +272,13 @@ export const normalTimeStudies = [
     requirement: [111],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [122, 123],
-    description: `You gain ${formatX(50)} more Eternity Points`,
-    effect: () => 50,
-    formatEffect: value => (Perk.studyActiveEP.isBought ? undefined : formatX(value, 1, 1)),
+    description: () => (Perk.studyActiveEP.isBought
+      ? `You gain ${formatX(50)} more Eternity Points`
+      : `You gain ${formatX(50)} more Eternity Points`),
+    effect: () => (Perk.studyActiveEP.isBought
+      ? 50
+      : 50),
+    formatEffect: value => (Perk.studyActiveEP.isBought ? undefined : undefined),
     cap: 50
   },
   {
@@ -348,9 +352,12 @@ export const normalTimeStudies = [
     requirement: [131],
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [142, 143],
-    description: `You gain ${formatX(DC.E45)} more Infinity Points`,
-    effect: () => DC.E45,
-    formatEffect: value => (Perk.studyActiveEP.isBought ? undefined : formatX(value, 2, 1))
+    description: () => (Perk.studyActiveEP.isBought
+      ? `You gain ${formatX(DC.E45)} more Infinity Points`
+      : `You gain ${formatX(DC.E45)} more Infinity Points`),
+    effect: () => (Perk.studyActiveEP.isBought
+      ? DC.E45
+    : DC.E45),
   },
   {
     id: 142,
