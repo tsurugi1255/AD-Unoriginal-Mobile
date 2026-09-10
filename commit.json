@@ -1,1 +1,1 @@
-{"sha":"9c8c33e9107eb3f168afea5d370446b9a5cf1962","message":"move glyph inventory temporarily","author":"tsurugi1255"}
+{"sha":"bd0a834fbb1f69697903ba6d80e3fd56b337f97d","message":"Revert \"move glyph inventory temporarily\"\n\nThis reverts commit 640f078c9eba4a3b32cb469e3a3c72cd49023ccd.","author":"tsurugi1255"}
