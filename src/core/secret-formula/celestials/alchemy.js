@@ -197,16 +197,15 @@ export const alchemyResources = {
     symbol: "π",
     isBaseResource: false,
     effect: amount => {
-      const rawValue = 0.3 + 1.3 * Math.sqrt(amount / 25000);
-      return Achievement(175).isUnlocked ? rawValue : Math.min(rawValue, 1);
+      const rawValue = 0.6 + (1.3 * Math.sqrt(amount / 25000) * 2);
+      return rawValue;
     },
     tier: 3,
     uiOrder: 2,
     unlockedAt: 13,
     description: "increases the yield of Alchemy Reactions",
     formatEffect(value) {
-      return `Alchemy Reaction efficiency ${formatPercents(0.3)} ➜ ${formatPercents(value, 2, 2)}
-        ${(!Achievement(175).isUnlocked && value >= 1) ? " (Capped)" : ""}`;
+      return `Alchemy Reaction efficiency ${formatPercents(0.6)} ➜ ${formatPercents(value, 2, 2)}`;
     },
     reagents: [
       {
