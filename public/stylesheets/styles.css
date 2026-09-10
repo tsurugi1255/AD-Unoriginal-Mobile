@@ -8451,7 +8451,7 @@ kbd {
 .l-reality-button-column {
   display: flex;
   flex-direction: column;
-  width: 40vw;
+  width: 35vw;
   align-items: center;
 }
 
@@ -8469,6 +8469,7 @@ kbd {
   width: 60vw;
   justify-content: flex-start;
   padding-top: 1rem;
+  margin-right: 5vw;
 }
 
 .l-reality-upgrade-grid {
