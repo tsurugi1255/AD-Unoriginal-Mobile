@@ -8469,9 +8469,7 @@ kbd {
   flex-direction: column;
   width: 65rem;
   align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: 1rem;
-  padding-left: 0.5rem;
+  padding-top: 1rem;;
 }
 
 .l-reality-upgrade-grid {
