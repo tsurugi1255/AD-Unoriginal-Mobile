@@ -8468,7 +8468,7 @@ kbd {
   display: flex;
   flex-direction: column;
   width: 65rem;
-  align-items: flex-start;
+  justify-content: flex-start;
   padding-top: 1rem;;
 }
 
