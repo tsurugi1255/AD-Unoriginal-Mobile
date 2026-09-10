@@ -8451,9 +8451,8 @@ kbd {
 .l-reality-button-column {
   display: flex;
   flex-direction: column;
-  width: 44rem;
+  width: 40vw;
   align-items: center;
-  margin-right: 2rem;
 }
 
 .l-reality-button-group {
@@ -8467,7 +8466,7 @@ kbd {
 .l-player-glyphs-column {
   display: flex;
   flex-direction: column;
-  width: 65rem;
+  width: 60vw;
   justify-content: flex-start;
   padding-top: 1rem;
 }
