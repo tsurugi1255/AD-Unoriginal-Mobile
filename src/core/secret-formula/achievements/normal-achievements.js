@@ -847,8 +847,8 @@ export const normalAchievements = [
   {
     id: 109,
     name: "Wrong way round",
-    description: "Eternity with more Replicanti Galaxies then Replicanti",
-    checkRequirement: () => Replicanti.amount.round().lt(player.replicanti.galaxies),
+    description: "Eternity with more than 20 Replicanti Galaxies",
+    checkRequirement: () => player.replicanti.galaxies > 20,
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
   },
   {
