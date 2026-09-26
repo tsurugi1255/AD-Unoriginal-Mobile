@@ -263,7 +263,6 @@ body.t-s12 {
 }
 
 .game-container {
-  margin-top: 10vh;
   width: 100%;
 }
 
@@ -276,6 +275,7 @@ body.t-s12 {
   flex-direction: column;
   position: relative;
   justify-content: center;
+  margin-top: 5vh;
 }
 
 .tab-container > .l-antimatter-dim-tab {
